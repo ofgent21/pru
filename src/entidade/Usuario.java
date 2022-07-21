@@ -15,7 +15,7 @@ public class Usuario {
 	
 	public Usuario(int idUsuario, String nome, String email, String cpf, ArrayList<Pru> prus) {
 		super();
-		this.idUsuario = idSoma();
+		this.idUsuario = idUsuario;
 		this.nome = nome;
 		this.email = email;
 		this.cpf = cpf;
@@ -27,7 +27,7 @@ public class Usuario {
 	}
 
 	public void setIdUsuario(int idUsuario) {
-		this.idUsuario = idSoma();
+		this.idUsuario = idUsuario;
 	}
 
 	public String getNome() {
@@ -62,7 +62,6 @@ public class Usuario {
 		this.prus = prus;
 	}
 
-
 	public void criarMensagem(String msg) {
 		Pru novo = new Pru(msg);
 
@@ -75,8 +74,8 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [idUsuario=" + idUsuario + ", nome=" + nome + ", email=" + email + ", cpf=" + cpf + ", prus="
-				+ prus + "]";
+		return " Usuario:" + idUsuario + "\n Nome:" + nome + "\n email=" + email + "\n CPF=" + cpf + "\n Pru:"
+				+ prus;
 	}
  
 }

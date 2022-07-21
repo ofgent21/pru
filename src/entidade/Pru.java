@@ -18,7 +18,7 @@ public class Pru {
 		this.idPru = contaId();
 		this.msgPru = msgPru;
 		this.dataCriacao = new Date();
-		this.quantidadeLikes = 0;
+		this.quantidadeLikes = somaLike();
 		this.bloqueado = false;
 	}
 
@@ -27,6 +27,7 @@ public class Pru {
 	}
 	
 	public int contaId() {
+		
 		return this.getIdPru()+1;  
 	}
 
@@ -51,7 +52,11 @@ public class Pru {
 	}
 
 	public boolean isBloqueado() {
-		return bloqueado;
+		if (bloqueado == true) {
+		return bloqueado=false;
+		}else {
+		return bloqueado = true;
+		}
 	}
 
 	public void setBloqueado(boolean bloqueado) {
@@ -60,8 +65,10 @@ public class Pru {
 
 	@Override
 	public String toString() {
-		return "Pru idPru =" + idPru + "\n" + msgPru + "\n Criado em: " + dataCriacao + "\n Likes:"
+		if (bloqueado) {
+			return "MENSAGEM BLOQUEADA POR DESCUMPRIR REGRAS DE USO DO PRU";
+		}
+		return " Pru:" + idPru + "\n" + msgPru + "\n Criado em: " + dataCriacao + "\n Likes:"
 				+ quantidadeLikes + "\n bloqueado=" + bloqueado;
 	}
-
 }
