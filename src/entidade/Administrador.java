@@ -13,4 +13,5 @@ public class Administrador extends Usuario {
 	public String toString() {
 		return "Administrador: " + this.getNome();
 	}
+	
 }

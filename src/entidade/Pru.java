@@ -8,6 +8,7 @@ public class Pru {
 	private Date dataCriacao;
 	private int quantidadeLikes;
 	private boolean bloqueado;
+	private int idUsu;
 
 	public Pru() {
 		super();
@@ -15,21 +16,21 @@ public class Pru {
 
 	public Pru(String msgPru) {
 		super();
-		this.idPru = idPru+0;
+		this.idPru = idPru + 0;
 		this.msgPru = msgPru;
 		this.dataCriacao = new Date();
 		this.quantidadeLikes = 0;
 		this.bloqueado = false;
+		this.idUsu = idUsu+0;
 	}
 
 	public int getIdPru() {
 		return idPru;
 	}
-	
+
 	public void setIdPru(int IdPru) {
 		this.idPru = IdPru;
 	}
-	
 
 	public String getMsgPru() {
 		return msgPru;
@@ -59,11 +60,24 @@ public class Pru {
 		this.bloqueado = bloqueado;
 	}
 
+	public void somaLikes() {
+		this.quantidadeLikes++;
+	}
+
+	public int getIdUsu() {
+		return idUsu;
+	}
+	
+	public void setIdUsu (int idUsu) {
+		this.idUsu = idUsu;
+	}
+
 	@Override
 	public String toString() {
 		if (bloqueado) {
 			return "PRU " + idPru + " BLOQUEADO POR DESCUMPRIR REGRAS DE USO";
 		}
-		return " Mensagem do Pru "+ idPru +": "+ msgPru + "\n Criado em: " + dataCriacao + "\n Likes:" + quantidadeLikes;
+		return " Mensagem do Pru " + idPru + ": " + msgPru + "\n Criado em: " + dataCriacao + "\n Likes:"
+				+ quantidadeLikes;
 	}
 }

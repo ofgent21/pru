@@ -1,9 +1,11 @@
 package Principal;
 
 import java.util.ArrayList;
+import java.util.Date;
+
 import entidade.Administrador;
-import entidade.Usuario;
 import entidade.Pru;
+import entidade.Usuario;
 
 public class PrincipalPombo {
 
@@ -17,12 +19,16 @@ public class PrincipalPombo {
 		usuarios.add(usuario01);
 		usuarios.add(usuario02);
 		usuarios.add(usuario03);
-		int codIdPru = 0;
+
 		ArrayList<Pru> prus = new ArrayList<Pru>();
-//		System.out.println("----------------------------------------");
-//		System.out.println("PRIMEIRO PRU");
-//		System.out.println("----------------------------------------");
-		String msgPru1 = "Olá, esté é o primeiro Pru do Sistema";
+		int codIdPru = 0;
+		
+		
+		System.out.println(prus);
+		// System.out.println("----------------------------------------");
+		// System.out.println("PRIMEIRO PRU");
+		// System.out.println("----------------------------------------");
+		String msgPru1 = "Verificando de novo o pru";
 		msgPru1 = VerificaMensagem.mensagem(msgPru1);
 		if (msgPru1 == "") {
 		} else {
@@ -30,12 +36,12 @@ public class PrincipalPombo {
 			Pru pru1 = new Pru(msgPru1);
 			prus.add(pru1);
 			pru1.setIdPru(codIdPru);
-			usuario01.setPrus(prus);
+			usuario02.setPrus(prus);
 		}
 
-//		System.out.println("----------------------------------------");
-//		System.out.println("SEGUNDO PRU");
-//		System.out.println("----------------------------------------");
+		// System.out.println("----------------------------------------");
+		// System.out.println("SEGUNDO PRU");
+		// System.out.println("----------------------------------------");
 		String msgPru2 = "Verificando de novo o pru";
 		msgPru2 = VerificaMensagem.mensagem(msgPru2);
 		if (msgPru2 == "") {
@@ -47,9 +53,9 @@ public class PrincipalPombo {
 			usuario02.setPrus(prus);
 		}
 
-//		System.out.println("----------------------------------------");
-//		System.out.println("TERCEIRO PRU");
-//		System.out.println("----------------------------------------");
+		// System.out.println("----------------------------------------");
+		// System.out.println("TERCEIRO PRU");
+		// System.out.println("----------------------------------------");
 		String msgPru3 = "Olá, aqui é mais uma mensagem. Boa Noite. ";
 		msgPru3 = VerificaMensagem.mensagem(msgPru3);
 		if (msgPru3 == "") {
@@ -59,12 +65,33 @@ public class PrincipalPombo {
 			prus.add(pru3);
 			pru3.setIdPru(codIdPru);
 			usuario03.setPrus(prus);
-			Administrador.bloquearpru(pru3);
+
 		}
 
-//		System.out.println("----------------------------------------");
-//		System.out.println("QUARTO PRU");
-//		System.out.println("----------------------------------------");
+		// BLOQUEAR PRU ATUAL
+		for (int i = 0; i < prus.size(); i++) {
+			if (prus.get(i).getIdPru() == codIdPru) {
+				Administrador.bloquearpru(prus.get(i));
+			}
+		}
+		// APRESENTA O PRU BLOQUEADO
+		System.out.println("PRU BLOQUEADO");
+		System.out.println(usuario03);
+
+		// DESBLOQUEAR PRU ATUAL
+		for (int i = 0; i < prus.size(); i++) {
+			if (prus.get(i).getIdPru() == codIdPru) {
+				Administrador.desbloquearpru(prus.get(i));
+			}
+		}
+
+		// APRESENTA O PRU DESBLOQUEADO
+		System.out.println("PRU DESBLOQUEADO");
+		System.out.println(usuario03);
+
+		// System.out.println("----------------------------------------");
+		// System.out.println("QUARTO PRU");
+		// System.out.println("----------------------------------------");
 		String msgPru4 = "Olá, de novo estou aqui para mais uma mensagem. Boa Noite. ";
 		msgPru4 = VerificaMensagem.mensagem(msgPru4);
 		if (msgPru4 == "") {
@@ -74,9 +101,13 @@ public class PrincipalPombo {
 			prus.add(pru4);
 			pru4.setIdPru(codIdPru);
 			usuario03.setPrus(prus);
-			
 		}
 
+		for (int i = 0; i < prus.size(); i++) {
+			if (prus.get(i).getIdPru() == codIdPru) {
+				prus.get(i).setQuantidadeLikes(prus.get(i).getQuantidadeLikes() + 1);
+			}
+		}
 
 		for (int i = 0; i < prus.size(); i++) {
 			System.out.println(prus.get(i));
