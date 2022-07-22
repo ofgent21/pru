@@ -1,11 +1,13 @@
 package entidade;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Pru {
 	private int idPru;
 	private String msgPru;
-	private Date dataCriacao;
+	private String dataCriacao;
 	private int quantidadeLikes;
 	private boolean bloqueado;
 	private int idUsu;
@@ -18,10 +20,10 @@ public class Pru {
 		super();
 		this.idPru = idPru + 0;
 		this.msgPru = msgPru;
-		this.dataCriacao = new Date();
+		this.dataCriacao = FormataData.data();
 		this.quantidadeLikes = 0;
 		this.bloqueado = false;
-		this.idUsu = idUsu+0;
+		this.idUsu = idUsu + 0;
 	}
 
 	public int getIdPru() {
@@ -67,17 +69,27 @@ public class Pru {
 	public int getIdUsu() {
 		return idUsu;
 	}
-	
-	public void setIdUsu (int idUsu) {
+
+	public void setIdUsu(int idUsu) {
 		this.idUsu = idUsu;
+	}
+
+	public class FormataData {
+		public static String data() {
+			Date datainicial = new Date();
+			DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:MM:S");
+			String datacriacao = dateFormat.format(datainicial);
+			return datacriacao;
+		}
+
 	}
 
 	@Override
 	public String toString() {
 		if (bloqueado) {
-			return "PRU " + idPru + " BLOQUEADO POR DESCUMPRIR REGRAS DE USO";
+			return "\nPRU " + idPru + " BLOQUEADO POR DESCUMPRIR REGRAS DE USO";
 		}
-		return " Mensagem do Pru " + idPru + ": " + msgPru + "\n Criado em: " + dataCriacao + "\n Likes:"
-				+ quantidadeLikes;
+		return "Pru " + idPru + ": " + msgPru + "\n Criado em: " + dataCriacao + "\n Likes:"
+				+ quantidadeLikes +"\n";
 	}
 }

@@ -74,8 +74,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return " Usuario:" + idUsuario + "\n Nome:" + nome + "\n email=" + email + "\n CPF=" + cpf + "\n PRUS USUARIO: \n"
-				+ prus;
+		return " \n Nome:" + nome + "\n PRUS USUARIO: \n"+ prus;
 	}
  
 }
